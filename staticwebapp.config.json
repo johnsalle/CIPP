@@ -102,6 +102,12 @@
             ]
         }
     ],
+    "networking": {
+        "allowedIpRanges": [
+        "76.76.144.251/32",
+        "52.129.38.26/32"
+        ]
+    }
     "navigationFallback": {
         "rewrite": "/error-404-1.html",
         "exclude": [
