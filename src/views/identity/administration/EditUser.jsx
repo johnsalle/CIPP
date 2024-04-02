@@ -107,7 +107,7 @@ const EditUser = () => {
       PostalCode: values.postalCode,
       usageLocation: values.usageLocation ? values.usageLocation.value : '',
       UserID: userId,
-      Username: values.mailNickname,
+      Username: values.username,
       streetAddress: values.streetAddress,
       tenantID: tenantDomain,
       mustchangepass: values.RequirePasswordChange,
@@ -137,7 +137,7 @@ const EditUser = () => {
     },
     license: precheckedLicenses,
     //if currentSettings.defaultAttributes exists. Set each of the keys inside of currentSettings.defaultAttributes.label to the value of the user attribute found in the user object.
-    defaultAttributes: currentSettings.userSettingsDefaults.defaultAttributes.reduce(
+    defaultAttributes: currentSettings?.userSettingsDefaults?.defaultAttributes.reduce(
       (o, key) => Object.assign(o, { [key.label]: { Value: user[key.label] } }),
       {},
     ),
@@ -222,7 +222,7 @@ const EditUser = () => {
                             <CCol lg={6} xs={12}>
                               <RFFCFormInput
                                 type="text"
-                                name="mailNickname"
+                                name="username"
                                 label="Edit Username"
                                 disabled={formDisabled}
                               />
@@ -410,7 +410,7 @@ const EditUser = () => {
                             </CCol>
                           </CRow>
                           <>
-                            {currentSettings.userSettingsDefaults.defaultAttributes.map(
+                            {currentSettings?.userSettingsDefaults?.defaultAttributes.map(
                               (attribute, idx) => (
                                 <CRow key={idx}>
                                   <CCol>
